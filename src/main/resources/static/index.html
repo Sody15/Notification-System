@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+
+    <!-- Toastr -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <!-- App Script -->
+    <script src="/app.js"></script>
+</head>
+<body>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="message">Enter your notification message</label>
+                    <input type="text" id="message" class="form-control" placeholder="Your message here...">
+                </div>
+                <div class="form-group">
+                    <div class="radio">
+                      <label><input type="radio" name="notif-type" value="success" checked>Success</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="notif-type" value="info">Info</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="notif-type" value="warning">Warning</label>
+                    </div>
+                    <div class="radio">
+                      <label><input type="radio" name="notif-type" value="error">Error</label>
+                    </div>
+                </div>
+                <button id="send" class="btn btn-default" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
