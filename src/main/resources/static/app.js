@@ -42,6 +42,7 @@ function sendNotification() {
 
 function showNotification(message, type) {
     window.toastr[type](message);
+    $('#notif-count').html( Number( $('#notif-count').html() ) + 1 );
 }
 
 $(function () {
