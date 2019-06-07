@@ -45,8 +45,8 @@ function showNotification(message, type) {
 }
 
 $(function () {
-    $("form").on('submit', function (e) {  e.preventDefault(); });
     connectWebSocket();
+    $("form").on('submit', function (e) {  e.preventDefault(); });
     $( "#send" ).click(function() { sendNotification(); });
 });
 
