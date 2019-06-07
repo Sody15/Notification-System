@@ -17,9 +17,10 @@ window.toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+// Stomp/Websocket config
 var stompClient = null;
 
-function connect() {
+function connectWebSocket() {
     var socket = new SockJS('/notifications-websocket');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
@@ -32,10 +33,11 @@ function connect() {
 }
 
 function sendNotification() {
-    stompClient.send("/app/notifications", {}, JSON.stringify( {
+    stompClient.send("/app/notifications", {}, JSON.stringify({
         'message': $("#message").val(), 
         'type': $("input[name='notif-type']:checked").val()
-    } ));
+        })
+    );
 }
 
 function showNotification(message, type) {
@@ -43,10 +45,8 @@ function showNotification(message, type) {
 }
 
 $(function () {
-    $("form").on('submit', function (e) {
-        e.preventDefault();
-    });
-    connect();
+    $("form").on('submit', function (e) {  e.preventDefault(); });
+    connectWebSocket();
     $( "#send" ).click(function() { sendNotification(); });
 });
 
